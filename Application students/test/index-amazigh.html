@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ⴼⴻⵔⵎⴰⴽⴰⵏⵙⴻⵔⵔⴻⴼⵍⵓⵙⵓⵏ | ⵜⴻⵔⴻⴼⵓⵜⴻⵣ ⵉ ⴱⵔⵓⵙⵜⴰⵜⴻ ⴽⴰⵏⵙⴻⵔ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header avec Logo */
+        header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .dna-logo {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+        
+        .helix {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            animation: rotate 4s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+        
+        .helix-strand {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #0066cc;
+            border-radius: 50%;
+            transform: rotateX(60deg);
+        }
+        
+        .helix-strand:nth-child(2) {
+            border-color: #00cc66;
+            transform: rotateX(60deg) rotateY(60deg);
+        }
+        
+        .helix-strand:nth-child(3) {
+            border-color: #ff6b6b;
+            transform: rotateX(60deg) rotateY(120deg);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+        
+        /* Navigation optionnelle */
+        nav {
+            background: #34495e;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #2c3e50;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        
+        .hero h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .hero p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        /* Section des structures moléculaires */
+        .structures-showcase {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        
+        .structures-showcase h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .structure-image-container {
+            background: #f8f9fa;
+            border: 3px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .structure-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .structure-caption {
+            margin-top: 15px;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        /* Stats Cards */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        /* Molecule Cards */
+        .molecules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .molecule-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-left: 5px solid #3498db;
+            position: relative;
+        }
+        
+        .molecule-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .molecule-card.featured {
+            border-left-color: #f39c12;
+            background: linear-gradient(135deg, #fff 0%, #fef5e7 100%);
+        }
+        
+        .molecule-card.featured::before {
+            content: "⭐";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+        }
+        
+        .molecule-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .badge {
+            background: #f39c12;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.6em;
+            font-weight: normal;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .molecule-info {
+            margin: 15px 0;
+        }
+        
+        .molecule-info p {
+            margin: 8px 0;
+            color: #555;
+        }
+        
+        .molecule-info strong {
+            color: #2c3e50;
+        }
+        
+        .efficacy-bar {
+            background: #ecf0f1;
+            height: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .efficacy-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2ecc71, #27ae60);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.85em;
+            font-weight: bold;
+            transition: width 1s ease-in-out;
+        }
+        
+        /* Table */
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* ADME Section */
+        .adme-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .adme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .adme-item {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s;
+        }
+        
+        .adme-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .adme-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+        }
+        
+        /* Footer */
+        footer {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: #7f8c8d;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .reference-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .molecules {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Floating Button */
+        .float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+        }
+        
+        .float-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .language-icon {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+        
+        .tooltip {
+            position: absolute;
+            bottom: 85px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .float-btn:hover .tooltip {
+            opacity: 1;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .float-btn {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .language-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header avec Logo Principal -->
+        <header>
+            <div class="header-content">
+                <div class="logo-section">
+                    <!-- Logo animé DNA -->
+                    <div class="dna-logo">
+                        <div class="helix">
+                            <div class="helix-strand"></div>
+                            <div class="helix-strand"></div>
+                            <div class="helix-strand"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h1>ⴼⴻⵔⵎⴰⴽⴰⵏⵙⴻⵔⵔⴻⴼⵍⵓⵙⵓⵏ</h1>
+                        <p class="subtitle">ⵏⴻⴽⵙⵜ ⴳⴻⵔⴻⵏⴻⵔⴰⵜⵓⵏ ⵜⴻⵔⴻⴼⵓⵜⴻⵣ ⵉ ⴱⵔⵓⵙⵜⴰⵜⴻ ⴽⴰⵏⵙⴻⵔ</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation (Optionnelle) -->
+        <nav>
+            <ul>
+                <li><a href="#mission">ⵎⵉⵙⵉⵢⵓⵏ</a></li>
+                <li><a href="#structures">ⵙⵔⴻⴽⵜⵓⵔⴻⵙ</a></li>
+                <li><a href="#molecules">ⵜⵓⴱ ⵎⵓⵍⴻⴽⵓⵍⴻⵙ</a></li>
+                <li><a href="#adme">ⴰⴷⵎⴻ ⴷⴰⵜⴰ</a></li>
+                <li><a href="#comparison">ⴽⵓⵎⴱⴰⵔⵉⵙⵓⵏ</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero" id="mission">
+            <h2>🎯 ⵎⵉⵙⵉⵢⵓⵏ ⴰⴽⵉⵙⵉⵏ</h2>
+            <p>
+                ⴱⵔⵓⵙⵜⴰⵜⴻ ⴽⴰⵏⵙⴻⵔ ⴰⴷ ⴰⵣⴻⵔⵔⴰⵢ ⴰⵏⴻⵎⵎⴻⵔ ⴰⴷ ⵉⵏⴻⵙ ⴰⵎⴻⵏⵉⴽⴻⵏ.
+ⴰⵎⴻⵙⵔⴰⵢⵜⵓⵎ ⴰⵏⵏⵉ ⴰⴳⴻⵔⴻⴱⴰ ⴷ ⵉⴼⴻⵣⴻⵔⵓⵏ ⴰⴷ ⴰⴽⵉⵎⴻⵍ ⴰⵣⵉⵔ ⴰⵣⴻⵔⵔⴰⵏ ⵉ ⴼⵔⴰⵎⴰⴽⵓⵍⵓⴳⵉⵏ.
+ⵉⴼⵓⴽⵓⵙ ⵏⵏⵉ ⴰⴷ ⵉⵎⵓⵍⴻⴽⵓⵍⴻⵙ ⴰⵏⴻⵏ ⴰⴽⴻⵙ ⴰⴷⵎⴻ ⴷ ⵜⴻⴽⴻⵏⴻⵔⴻⵣ ⴰⴽⵓⵙⵙⵉⵍⵉⴽ ⴰⴼⴻⴽⴻⵙ ⴰⴽⵓⴻⵏⵉⴽⵍⵉⴽ,
+ⴷ ⵉⵙⴻⵏⴻⴽⵓⵙ ⴰⴼⴻⴽⵓⵙ ⴰⵎⴻⵎⵉⵙ ⴰⴽⵓⵏⵉⵙ ⴰⴼⴻⵙⵓⴳⵉⴽ.
+            </p>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">ⴰⴳⴻⵏⵜⵙ ⴰⴱⵔⵓⴱⵓⴷ ⵙ ⴼⴷⴰ</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">84%</div>
+                    <div class="stat-label">ⴰⴼⴳ. ⴱⵉⵢⵓⴰⴼⴰⵍⵉⴱⵉⵍⵉⵜⵉ</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">67%</div>
+                    <div class="stat-label">ⴰⵓⴻⵙ ⵉⵎⴱⵔⵓⴼⴻⵎⴻⵏⵜ</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">ⵎⵓⵏⵜ ⴱⴼⴻⵙ ⴱⴻⵏⴻⴼⵉⵜ</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section d'affichage des structures moléculaires -->
+        <section class="structures-showcase" id="structures">
+            <h2>🧬 ⵙⵔⴻⴽⵜⵓⵔⴻⵙ ⵎⵓⵍⴻⴽⵓⵍⴻⵙ ⵉ ⵜⴻⵔⴻⴼⵓⵜⴻⵣ ⴰⴽⵓⵙⴻⵏⵉⵏ</h2>
+            <div class="structure-image-container">
+                <img src="logo_and_structures.svg" alt="Molecular Structures of Prostate Cancer Drugs" class="structure-image">
+                <p class="structure-caption">
+                    ⵉⵏⵜⴻⵔⴰⴽⵜⵉⴼ ⵙⵔⴻⴽⵜⵓⵔⴻⵙ ⵎⵓⵍⴻⴽⵓⵍⴻⵙ ⴷ ⴻⵏⵣⴰⵍⵓⵜⴰⵎⵉⴷ, ⴷⴰⵔⵓⵍⵓⵜⴰⵎⵉⴷ, ⴰⴱⵉⵔⴰⵜⴻⵔⵓⵏ, ⵓⵍⴰⴱⴰⵔⵉⴱ, ⴷ ⵍⵓ-177-ⴱⵙⵎⴰ-617<br>
+                    <em>ⴽⴻⵙ ⴰⵣⴻⵔ ⴰⵖⵔ ⵉ ⵙⵔⴻⴽⵜⵓⵔⴻⵙ ⴷ ⵜⴻⵎⴻⵔⵏⴻⵜ ⴰⴷ ⴰⴽⵉⵎⵉⴽⴰⵍ ⴰⴼⴻⴽⵉⴽ</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- Top Molecules -->
+        <h2 id="molecules" style="color: white; margin: 30px 0 20px; text-align: center; font-size: 2em;">
+            🏆 ⵜⵓⴱ 5 ⴰⴳⴻⵏⵜⵙ ⵉ ⵜⴻⵔⴻⴼⵓⵜⴻⵣ
+        </h2>
+        
+        <div class="molecules">
+            <!-- Darolutamide - #1 -->
+            <div class="molecule-card featured">
+                <h3>
+                    ⴷⴰⵔⵓⵍⵓⵜⴰⵎⵉⴷ (ODM-201)
+                    <span class="badge">ⵔⴰⵏⴽ #1</span>
+                </h3>
+                <div class="molecule-info">
+                    <p><strong>ⵛⴻⵎⴱⵍ ⵉⴷⵉ:</strong> ⵛⴻⵎⴱⵍ3707346</p>
+                    <p><strong>ⵜⴰⵔⴳⴻⵜ:</strong> ⴰⵏⴷⵔⵓⴳⴻⵏ ⵔⴻⵛⴻⴱⵜⵓⵔ ⴰⵏⵜⴰⴳⵓⵙⵜ</p>
+                    <p><strong>ⴽⵉ ⴰⴼⴰⴳⴻⵏⵜⴻⵙ:</strong> ⵏⵓ ⵛⴻⵏⴻⵙ ⴱⴻⵏⴻⵜⵔⴰⵜⵉⵓⵏ (ⵏⵓ ⵙⵉⵣⵓⵔⴻⵙ)</p>
+                    <p><strong>ⴱⵉⵢⵓⴰⴼⴰⵍⵉⴱⵉⵍⵉⵜⵉ:</strong> 30% (90% ⴷ ⴰⴳⴰⵎⵓ)</p>
+                    <p><strong>ⵜⴰⵍⴻⴼⵜ ⴰⵎⴻⵣⵉⵍ:</strong> ~20 ⵙⴻⴳⴰⵙ</p>
+                    <p><strong>ⵜⴰⵙⴻⴽⴻⵍⵜ ⴰⴽⵓⵏⵉⵙⵉⵍⵉⴽ:</strong> ⴰⵔⴰⵎⵉⵙ (NEJM 2019)</p>
+                </div>
+                <div class="efficacy-bar">
+                    <div class="efficacy-fill" style="width: 96%;">ⴻⴼⴻⴽⵉⴽⵉⵜ: 96%</div>
+                </div>
+            </div>
+
+            <!-- Enzalutamide -->
+            <div class="molecule-card">
+                <h3>ⴻⵏⵣⴰⵍⵓⵜⴰⵎⵉⴷ (MDV3100)</h3>
+                <div class="molecule-info">
+                    <p><strong>ⵛⴻⵎⴱⵍ ⵉⴷⵉ:</strong> ⵛⴻⵎⴱⵍ1261870</p>
+                    <p><strong>ⵜⴰⵔⴳⴻⵜ:</strong> ⴰⵔ ⴰⵏⵜⴰⴳⵓⵙⵜ (2ⴷ ⴳⴻⵏⴻⵔⴰⵜⵓⵏ)</p>
+                    <p><strong>ⴱⵉⵢⵓⴰⴼⴰⵍⵉⴱⵉⵍⵉⵜⵉ:</strong> 84%</p>
+                    <p><strong>ⵜⴰⵍⴻⴼⵜ ⴰⵎⴻⵣⵉⵍ:</strong> 5.8 ⵙⴻⵎⴰⵍ</p>
+                    <p><strong>ⵉⴽⵙ50:</strong> 36 ⵏⴻⵎ (ⴰⵔ ⴱⵉⵏⴷⵉⵏⴳ)</p>
+                    <p><strong>ⵜⴰⵙⴻⴽⴻⵍⵜ ⴰⴽⵓⵏⵉⵙⵉⵍⵉⴽ:</strong> ⴰⴼⴼⵉⵔⵎ (NEJM 2012)</p>
+                </div>
+                <div class="efficacy-bar">
+                    <div class="efficacy-fill" style="width: 92%;">ⴻⴼⴻⴽⵉⴽⵉⵜ: 92%</div>
+                </div>
+            </div>
+
+            <!-- Lu-177-PSMA -->
+            <div class="molecule-card">
+                <h3>
+                    ⵍⵓ-177-ⴱⵙⵎⴰ-617
+                    <span class="badge" style="background: #e74c3c;">ⴱⵔⴰⴽⵜⵔⵁ</span>
+                </h3>
+                <div class="molecule-info">
+                    <p><strong>ⵜⵉⴱⴻ:</strong> ⵜⴰⵔⴰⴷⵢⵓⵍⵉⴳⴰⵏⴷ ⵜⴻⵔⴰⴱⵉ</p>
+                    <p><strong>ⵜⴰⵔⴳⴻⵜ:</strong> ⴱⵙⵎⴰ (ⴱⵔⵓⵙⵜⴰⵜ ⵙⴱⵉⵙⵉⴼⵉⴽ ⵎⴻⵎⴱⵔⴰⵏ ⴰⵏⵜⴰⴳⵓⵏ)</p>
+                    <p><strong>ⵜⵓⵔ:</strong> ⵉⴼ ⵉⵏⴼⵓⵣⵢⵓⵏ</p>
+                    <p><strong>ⵜⴰⵍⴻⴼⵜ ⴰⵎⴻⵣⵉⵍ:</strong> 6.65 ⵙⴻⵎⴰⵍ (ⴰⴼⵉⵣⵉⵍ)</p>
+                    <p><strong>ⵔⵓⵙⴱⵓⵏⵙ ⵔⴰⵜⵉ:</strong> 46% ⴱⵙⴰ ⵔⵓⴽⵓⴷⵉⵏ >50%</p>
+                    <p><strong>ⵜⴰⵙⴻⴽⴻⵍⵜ ⴰⴽⵓⵏⵉⵙⵉⵍⵉⴽ:</strong> ⴼⵉⵣⵉⵓⵏ (NEJM 2021)</p>
+                </div>
+                <div class="efficacy-bar">
+                    <div class="efficacy-fill" style="width: 89%;">ⴻⴼⴻⴽⵉⴽⵉⵜ: 89%</div>
+                </div>
+            </div>
+
+            <!-- Olaparib -->
+            <div class="molecule-card">
+                <h3>ⵓⵍⴰⴱⴰⵔⵉⴱ (Lynparza)</h3>
+                <div class="molecule-info">
+                    <p><strong>ⵛⴻⵎⴱⵍ ⵉⴷⵉ:</strong> ⵛⴻⵎⴱⵍ521686</p>
+                    <p><strong>ⵜⴰⵔⴳⴻⵜ:</strong> ⴱⴰⴱ1/2 ⵉⵏⴱⵉⵜⵓⵔ</p>
+                    <p><strong>ⵉⵏⴷⵉⴽⴰⵙⵢⵓⵏ:</strong> BRCA1/2 ney ATM ⴰⵎⵓⵜⴰⵜⴷ mCRPC</p>
+                    <p><strong>ⴱⵉⵢⵓⴰⴼⴰⵍⵉⴱⵉⵍⵉⵜⵉ:</strong> 60%</p>
+                    <p><strong>ⵜⴰⵍⴻⴼⵜ ⴰⵎⴻⵣⵉⵍ:</strong> 14.9 ⵙⴻⴳⴰⵙ</p>
+                    <p><strong>ⵜⴰⵙⴻⴽⴻⵍⵜ ⴰⴽⵓⵏⵉⵙⵉⵍⵉⴽ:</strong> ⴱⵔⵓⴼⵓⵏⴷ (NEJM 2020)</p>
+                </div>
+                <div class="efficacy-bar">
+                    <div class="efficacy-fill" style="width: 85%;">ⴻⴼⴻⴽⵉⴽⵉⵜ: 85%</div>
+                </div>
+            </div>
+
+            <!-- Abiraterone -->
+            <div class="molecule-card">
+                <h3>ⴰⴱⵉⵔⴰⵜⴻⵔⵓⵏ ⴰⴽⴻⵜⴰⵜ</h3>
+                <div class="molecule-info">
+                    <p><strong>ⵛⴻⵎⴱⵍ ⵉⴷⵉ:</strong> ⵛⴻⵎⴱⵍ 1200920</p>
+                    <p><strong>ⵜⴰⵔⴳⴻⵜ:</strong> ⵙⵢⴱ17ⴰ1 ⵉⵏⵀⵉⴱⵉⵜⵓⵔ</p>
+                    <p><strong>ⵎⴻⴽⴰⵏⵉⵙⵎ:</strong> ⴱⵍⵓⴽⵙ ⴰⵏⴷⵔⵓⵖⴻⵏ ⵙⵉⵏⵜⵢⴻⵙⵉⵙ</p>
+                    <p><strong>ⴱⵉⵢⵓⴰⴼⴰⵍⵉⴱⵉⵍⵉⵜⵉ:</strong> 5% (ⴼⴰⵙⵜⴻⴷ)</p>
+                    <p><strong>ⵜⴰⵍⴻⴼⵜ ⴰⵎⴻⵣⵉⵍ:</strong> 12-16 ⵙⴻⴳⴰⵙ</p>
+                    <p><strong>ⴽⵓⴰⴷⵎⵉⵙⵜⵔⴰⵜⵉⵙⵉⵓⵏ:</strong> ⵔⴻⴽⵡⵉⵔⴻⵙ ⴱⵔⴻⴷⵏⵉⵣⵓⵏ</p>
+                </div>
+                <div class="efficacy-bar">
+                    <div class="efficacy-fill" style="width: 81%;">ⴻⴼⴻⴽⵉⴽⵉⵜ: 81%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADME Comparison -->
+        <section class="adme-section" id="adme">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">📊 ⴰⴷⵎⴻ ⴱⵔⵓⴱⴻⵔⵜⵉⵙ ⴽⵓⵎⴱⴻⵔⴰⵙ⵩ⵓⵏ</h2>
+            
+            <div class="adme-grid">
+                <div class="adme-item">
+                    <h4><span class="icon">💊</span> ⴰⴱⵙⵓⵔⴱ⵫ⵏ</h4>
+                    <p><strong>ⴱⴻⵙⵜ:</strong> ⴻⵏⵣⴰⵍⵓⵜⴰⵎⵉⴷ (84%)</p>
+                    <p><strong>ⴼⵓⴷ ⴻⴼⴻⴽⵜ:</strong> ⴷⴰⵔⵓⵍⵓⵜⴰⵎⵉⴷ (2.25x ↑)</p>
+                    <p><strong>ⵉⴼ ⵓⵏⵍⵉ:</strong> ⵍⵓ-177-ⴱⵙⵎⴰ</p>
+                </div>
+                
+                <div class="adme-item">
+                    <h4><span class="icon">🔄</span> ⴷⵉⵙⵟⵔⵉⴱⵓⵙⵉⵏ</h4>
+                    <p><strong>ⴱⵔⵓⵜⵉⵏ ⴱⴰⵏⴷⵉⵏⴳ:</strong> 82-99%</p>
+                    <p><strong>ⴱⴱⴱ ⴱⴻⵏⵜⴻⵔⵏⴰⵙⵢⵓⵏ:</strong> ⵎⵉⵏⵉⵎⴰⵍ (ⴷⴰⵔⵓⵍⵓⵜⴰⵎⵉⴷ) ✓</p>
+                    <p><strong>ⵡⴷ ⵔⴰⵏⴳⴻ:</strong> 110-19,669 L</p>
+                </div>
+                
+                <div class="adme-item">
+                    <h4><span class="icon">⚗️</span> ⵎⴻⵜⴰⴱⵓⵍⵉⵙⵎ</h4>
+                    <p><strong>ⴱⵔⵉⵎⴰⵔⵢ:</strong> ⵙⵢⴱ3A4 (ⵎⵓⵙⵜ)</p>
+                    <p><strong>ⴰⴽⵜⵉⴼ ⵎⴻⵜⴰⴱⵓⵍⵙⵉⵜ:</strong> ⵢⴻⵙ (ⴻⵏⵣⴰⵍⵓⵜⴰⵎⵉⴷ)</p>
+                    <p><strong>ⵍⵓ ⵉⵏⵜⴻⵔⴰⴽⵙⵢⵓⵏⵙ:</strong> ⴷⴰⵔⵓⵍⵓⵜⴰⵎⵉⴷ ✓</p>
+                </div>
+                
+                <div class="adme-item">
+                    <h4><span class="icon">🚰</span> ⵉⴽⵙⵔⵉⵜⵢⵓⵏ</h4>
+                    <p><strong>ⵔⴻⵏⴰⵍ:</strong> Lu-177 (67%)</p>
+                    <p><strong>ⴼⴻⴽⴰⵍ:</strong> ⴰⴱⵉⵔⴰⵜⴻⵔⵓⵏⴻ (88%)</p>
+                    <p><strong>ⵀⴰⴼ-ⵍⵉⴼ:</strong> 5.8-20 ⵀⵓⵔⵙ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-table" id="comparison">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">📈 ⴰⵎⴻⴽⴰⵔⵓ ⵉⵏⵙⵉⵙⵎⴰⵏ  ⵓⵙⵙⴰⵙⵙⵓⵏ ⵉⵏⵙⵉⵙⵎⴰⵏ ⵓⵙⵙⴰⵙⵙⵓⵏ</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ⴷⵔⵓⴳ</th>
+                        <th>ⵎⴻⴽⴰⵏⵉⵙⵎ</th>
+                        <th>ⵓⵙ ⴱⴻⵏⴼⵉⵜ</th>
+                        <th>ⵔⵉⵣⵓⵍⵜⴰⵜ ⴱⴻⵏⴼⵉⵜ PFS</th>
+                        <th>ⵙⴰⴼⴰⵜⵢ ⴱⵔⵓⴼⵉⵍ</th>
+                        <th>ⴽⵓⵙⵜ / ⵎⵓⵏⵜ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ⴷⴰⵔⵓⵍⵓⵜⴰⵎⵉⴷ</strong></td>
+                        <td>ⴰⵔ ⴰⵏⵜⴰⴳⵓⵏⵉⵙⵜ</td>
+                        <td>+18.4 ⴰⵢⵢⴰⵎ</td>
+                        <td>+22.0 ⴰⵢⵢⴰⵎ</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>$11,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ⴻⵏⵣⴰⵍⵓⵜⴰⵎⵉⴷ</strong></td>
+                        <td>ⴰⵔ ⴰⵏⵜⴰⴳⵓⵏⵉⵙⵜ</td>
+                        <td>+4.8 ⴰⵢⵢⴰⵎ</td>
+                        <td>+8.3 ⴰⵢⵢⴰⵎ</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>$10,500</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ⵍⵓ-177-ⴱⵙⵎⴰ</strong></td>
+                        <td>ⴰⵎⴻⴽⴰⵔⵓ ⵔⴰⴷⵢⵓⵍⵉⴳⴰⵏⴷ</td>
+                        <td>+4.0 ⴰⵢⵢⴰⵎ</td>
+                        <td>+5.3 ⴰⵢⵢⴰⵎ</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>$42,500/ⵙⵉⴽⵍ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ⵓⵍⴰⴱⴰⵔⵉⴱ</strong></td>
+                        <td>ⴱⴰⵔⴱ ⵉⵏⵀⵉⴱⵉⵜⵓⵔ</td>
+                        <td>+3.5 ⴰⵢⵢⴰⵎ</td>
+                        <td>+3.8 ⴰⵢⵢⴰⵎ</td>
+                        <td>⭐⭐⭐</td>
+                        <td>$15,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ⴰⴱⵉⵔⴰⵜⴻⵔⵓⵏⴻ</strong></td>
+                        <td>CYP17 ⵉⵏⵀⵉⴱⵉⵜⵓⵔ</td>
+                        <td>+4.6 ⴰⵢⵢⴰⵎ</td>
+                        <td>+5.6 ⴰⵢⵢⴰⵎ</td>
+                        <td>⭐⭐⭐</td>
+                        <td>$9,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- hovering boutton -->
+<a href="index.html" class="float-btn">
+        <svg class="language-icon" viewBox="0 0 24 24">
+            <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+        </svg>
+        <span class="tooltip">switch to ENGLISH</span>
+    </a>
+        <!-- Footer -->
+        <footer>
+            <p><strong>Data Sources:</strong> 
+                <a href="https://www.ebi.ac.uk/chembl/" class="reference-link">ChEMBL Database</a> | 
+                <a href="https://go.drugbank.com/" class="reference-link">DrugBank</a> | 
+                <a href="https://pubchem.ncbi.nlm.nih.gov/" class="reference-link">PubChem</a>
+            </p>
+            <p><strong>Clinical Trial Data:</strong> ClinicalTrials.gov | NEJM | Lancet Oncology</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">
+                © 2024ⴼⴻOⵎⴰⴽⴰlⵙⴻOOⴻⴼⵍⵓⵙⵓl ⴰⵎⴻⵣⵎⵎⴰ ⵜⴰⵙⴷⴰⵙⵜ ⴷ ⴰⴳⴷⴷⵓⵙ ⵓⵙⵙⴰⵙⵙⵓⵏ<br>
+                ⵉⵎⴰⵣⵉⴳ ⵜⴰⵎⴰⵣⵉⵍⵜ ⵏⴰⵏⵏⵓⵙ ⵣⵓⵙ ⵏⵏⴰⵙⵙⴰⵙ
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Animation des barres d'efficacité au chargement
+        window.addEventListener('load', function() {
+            const fills = document.querySelectorAll('.efficacy-fill');
+            fills.forEach((fill, index) => {
+                const width = fill.style.width;
+                fill.style.width = '0%';
+                setTimeout(() => {
+                    fill.style.width = width;
+                }, 100 + (index * 100));
+            });
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Appliquer l'observer aux cartes
+        document.querySelectorAll('.molecule-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
